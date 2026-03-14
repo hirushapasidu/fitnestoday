@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Free professional fitness calculators — TDEE, Macros, BMI, Body Fat, Heart Rate Zones, Hydration, Sleep & Recovery Score."/>
+  <meta name="theme-color" content="#141414"/>
+  <title>Fitness Tools & Calculators – Fitness Today</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/tools.css"/>
+</head>
+<body class="tools-page">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-sup">✦ Health & Fitness</span>
+      <span class="logo-main">Fitness<em>Today</em></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tools.html" class="active">🔬 Tools</a></li>
+      <li><a href="index.html#workouts">Workouts</a></li>
+      <li><a href="index.html#nutrition">Nutrition</a></li>
+      <li><a href="https://www.pinterest.com/fitnesstodayonline/" target="_blank" class="nav-pinterest">📌 Pinterest</a></li>
+      <li><a href="http://fitnesstodayonline.blogspot.com" target="_blank" class="nav-cta">Read Blog →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- TOOLS HERO -->
+<section class="tools-hero">
+  <div class="container">
+    <span class="section-tag">🔬 Free Fitness Tools</span>
+    <h1>Professional <em>Calculators</em></h1>
+    <p>Science-backed tools that give you personalized results in seconds — no sign-up required.</p>
+    <!-- TOOL TABS -->
+    <div class="tool-tabs" id="tool-tabs">
+      <button class="tab-btn active" data-tool="tdee">🔥 TDEE</button>
+      <button class="tab-btn" data-tool="macros">🥗 Macros</button>
+      <button class="tab-btn" data-tool="bmi">⚖️ BMI & BF%</button>
+      <button class="tab-btn" data-tool="heartrate">❤️ Heart Rate</button>
+      <button class="tab-btn" data-tool="hydration">💧 Hydration</button>
+      <button class="tab-btn" data-tool="sleep">🌙 Sleep Score</button>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATORS WRAPPER -->
+<div class="calculators-wrap container">
+
+  <!-- ============================= -->
+  <!-- 1. TDEE CALCULATOR            -->
+  <!-- ============================= -->
+  <div class="calc-panel active" id="tdee">
+    <div class="calc-layout">
+      <div class="calc-intro">
+        <h2>🔥 TDEE Calculator</h2>
+        <p class="calc-desc">Your <strong>Total Daily Energy Expenditure</strong> is how many calories your body burns each day. It's the foundation of any diet or training plan — know this number first.</p>
+        <div class="formula-box">
+          <strong>Formula Used:</strong> Mifflin-St Jeor + Activity Multiplier<br/>
+          <small>The gold standard for accurate TDEE estimation</small>
+        </div>
+      </div>
+      <div class="calc-form" id="tdee-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Sex</label>
+            <div class="toggle-group">
+              <button class="tog active" data-group="tdee-sex" data-val="female">Female</button>
+              <button class="tog" data-group="tdee-sex" data-val="male">Male</button>
+            </div>
+            <input type="hidden" id="tdee-sex" value="female"/>
+          </div>
+        </div>
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="tdee-age">Age <span class="unit">years</span></label>
+            <input type="number" id="tdee-age" placeholder="25" min="14" max="90"/>
+          </div>
+          <div class="form-group">
+            <label for="tdee-weight">Weight <span class="unit">kg</span></label>
+            <input type="number" id="tdee-weight" placeholder="65" min="30" max="300"/>
+          </div>
+        </div>
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="tdee-height">Height <span class="unit">cm</span></label>
+            <input type="number" id="tdee-height" placeholder="165" min="100" max="250"/>
+          </div>
+          <div class="form-group">
+            <label>Activity Level</label>
+            <select id="tdee-activity">
+              <option value="1.2">Sedentary (desk job, little exercise)</option>
+              <option value="1.375">Lightly Active (1–3 days/week)</option>
+              <option value="1.55" selected>Moderately Active (3–5 days/week)</option>
+              <option value="1.725">Very Active (6–7 days/week)</option>
+              <option value="1.9">Extra Active (athlete / physical job)</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcTDEE()">Calculate My TDEE →</button>
+        <div class="calc-result" id="tdee-result" style="display:none">
+          <div class="result-main">
+            <span class="result-num" id="tdee-main-num">—</span>
+            <span class="result-label">calories / day</span>
+          </div>
+          <div class="result-breakdown" id="tdee-breakdown"></div>
+          <p class="result-note">This is your maintenance calorie level. Eat below it to lose fat, above it to build muscle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- 2. MACRO CALCULATOR           -->
+  <!-- ============================= -->
+  <div class="calc-panel" id="macros">
+    <div class="calc-layout">
+      <div class="calc-intro">
+        <h2>🥗 Macro Calculator</h2>
+        <p class="calc-desc">Once you know your TDEE, macros tell you <strong>what</strong> to eat. Protein, fats, and carbohydrates are optimized based on your specific goal — fat loss, muscle gain, or maintenance.</p>
+        <div class="formula-box">
+          <strong>Protein targets:</strong> 1.6–2.2g/kg for muscle | 1.2–1.6g/kg for fat loss<br/>
+          <small>Based on current sports nutrition research (2024)</small>
+        </div>
+      </div>
+      <div class="calc-form">
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="macro-tdee">Your TDEE <span class="unit">kcal</span></label>
+            <input type="number" id="macro-tdee" placeholder="2000" id="macro-tdee"/>
+          </div>
+          <div class="form-group">
+            <label for="macro-weight">Your Weight <span class="unit">kg</span></label>
+            <input type="number" id="macro-weight" placeholder="65"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your Goal</label>
+          <div class="goal-grid">
+            <button class="goal-btn active" data-goal="fat-loss">🎯 Fat Loss<small>-20% deficit</small></button>
+            <button class="goal-btn" data-goal="maintenance">⚖️ Maintenance<small>No change</small></button>
+            <button class="goal-btn" data-goal="muscle">💪 Muscle Gain<small>+15% surplus</small></button>
+          </div>
+          <input type="hidden" id="macro-goal" value="fat-loss"/>
+        </div>
+        <button class="calc-btn" onclick="calcMacros()">Calculate My Macros →</button>
+        <div class="calc-result" id="macro-result" style="display:none">
+          <div class="result-main">
+            <span class="result-num" id="macro-kcal">—</span>
+            <span class="result-label">target calories / day</span>
+          </div>
+          <div class="macro-bars" id="macro-bars"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- 3. BMI & BODY FAT             -->
+  <!-- ============================= -->
+  <div class="calc-panel" id="bmi">
+    <div class="calc-layout">
+      <div class="calc-intro">
+        <h2>⚖️ BMI & Body Fat %</h2>
+        <p class="calc-desc">BMI gives a quick snapshot, but <strong>Body Fat %</strong> tells the real story. We use the Navy Tape Measure method — the most accurate non-lab approach available.</p>
+        <div class="formula-box">
+          <strong>Navy Method:</strong> Uses waist, neck, and hip measurements<br/>
+          <small>Accuracy within ±3-4% of DEXA scan results</small>
+        </div>
+      </div>
+      <div class="calc-form">
+        <div class="form-group">
+          <label>Sex</label>
+          <div class="toggle-group">
+            <button class="tog active" data-group="bmi-sex" data-val="female" onclick="toggleBmiSex('female')">Female</button>
+            <button class="tog" data-group="bmi-sex" data-val="male" onclick="toggleBmiSex('male')">Male</button>
+          </div>
+          <input type="hidden" id="bmi-sex" value="female"/>
+        </div>
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="bmi-height">Height <span class="unit">cm</span></label>
+            <input type="number" id="bmi-height" placeholder="165"/>
+          </div>
+          <div class="form-group">
+            <label for="bmi-weight">Weight <span class="unit">kg</span></label>
+            <input type="number" id="bmi-weight" placeholder="65"/>
+          </div>
+        </div>
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="bmi-waist">Waist <span class="unit">cm</span></label>
+            <input type="number" id="bmi-waist" placeholder="75" step="0.5"/>
+          </div>
+          <div class="form-group">
+            <label for="bmi-neck">Neck <span class="unit">cm</span></label>
+            <input type="number" id="bmi-neck" placeholder="33" step="0.5"/>
+          </div>
+        </div>
+        <div class="form-group" id="bmi-hip-group">
+          <label for="bmi-hip">Hips <span class="unit">cm</span> <small style="color:var(--muted)">(females only)</small></label>
+          <input type="number" id="bmi-hip" placeholder="95" step="0.5"/>
+        </div>
+        <button class="calc-btn" onclick="calcBMI()">Calculate →</button>
+        <div class="calc-result" id="bmi-result" style="display:none">
+          <div class="bmi-grid" id="bmi-grid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- 4. HEART RATE ZONES           -->
+  <!-- ============================= -->
+  <div class="calc-panel" id="heartrate">
+    <div class="calc-layout">
+      <div class="calc-intro">
+        <h2>❤️ Heart Rate Zones</h2>
+        <p class="calc-desc">Train at the <strong>right intensity</strong> for your goal. Zone 2 is where fat is burned. Zone 5 is peak performance. The Karvonen formula uses your resting heart rate for superior precision.</p>
+        <div class="formula-box">
+          <strong>Karvonen Formula:</strong> THR = (HRmax − HRrest) × intensity + HRrest<br/>
+          <small>More accurate than the standard max HR formula</small>
+        </div>
+      </div>
+      <div class="calc-form">
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="hr-age">Age <span class="unit">years</span></label>
+            <input type="number" id="hr-age" placeholder="28" min="14" max="90"/>
+          </div>
+          <div class="form-group">
+            <label for="hr-resting">Resting HR <span class="unit">bpm</span></label>
+            <input type="number" id="hr-resting" placeholder="65" min="35" max="100"/>
+            <small style="color:var(--muted);font-size:12px;">Measure first thing in the morning</small>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcHeartRate()">Calculate My Zones →</button>
+        <div class="calc-result" id="hr-result" style="display:none">
+          <div class="hr-zones" id="hr-zones"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- 5. HYDRATION CALCULATOR       -->
+  <!-- ============================= -->
+  <div class="calc-panel" id="hydration">
+    <div class="calc-layout">
+      <div class="calc-intro">
+        <h2>💧 Hydration Calculator</h2>
+        <p class="calc-desc">Most people are chronically dehydrated. Your daily water needs depend on your <strong>body weight, climate, and how hard you train.</strong> Get a personalized recommendation here.</p>
+        <div class="formula-box">
+          <strong>Base:</strong> 35ml per kg bodyweight + activity & climate adjustments<br/>
+          <small>Accounts for sweat loss and environmental temperature</small>
+        </div>
+      </div>
+      <div class="calc-form">
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="hyd-weight">Weight <span class="unit">kg</span></label>
+            <input type="number" id="hyd-weight" placeholder="65"/>
+          </div>
+          <div class="form-group">
+            <label>Climate</label>
+            <select id="hyd-climate">
+              <option value="0">Cool (< 15°C)</option>
+              <option value="0.3" selected>Temperate (15–25°C)</option>
+              <option value="0.7">Warm (25–35°C)</option>
+              <option value="1.0">Hot (> 35°C)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Exercise Intensity</label>
+          <div class="goal-grid">
+            <button class="goal-btn active" data-exgoal="none">😴 None/Rest</button>
+            <button class="goal-btn" data-exgoal="light">🚶 Light (&lt;30 min)</button>
+            <button class="goal-btn" data-exgoal="moderate">🏃 Moderate (30–60 min)</button>
+            <button class="goal-btn" data-exgoal="intense">🔥 Intense (60+ min)</button>
+          </div>
+          <input type="hidden" id="hyd-exercise" value="none"/>
+        </div>
+        <button class="calc-btn" onclick="calcHydration()">Calculate My Water Intake →</button>
+        <div class="calc-result" id="hyd-result" style="display:none">
+          <div class="result-main">
+            <span class="result-num" id="hyd-main">—</span>
+            <span class="result-label">litres / day</span>
+          </div>
+          <div class="hyd-tips" id="hyd-tips"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- 6. SLEEP & RECOVERY           -->
+  <!-- ============================= -->
+  <div class="calc-panel" id="sleep">
+    <div class="calc-layout">
+      <div class="calc-intro">
+        <h2>🌙 Sleep & Recovery Score</h2>
+        <p class="calc-desc">In 2026, recovery <em>is</em> training. Answer 8 quick questions to get your personalized <strong>Recovery Score</strong> and learn if you're overtraining or under-sleeping.</p>
+        <div class="formula-box">
+          <strong>Evidence-based:</strong> Covers sleep quality, duration, HRV, stress & training load<br/>
+          <small>Based on sports science recovery research</small>
+        </div>
+      </div>
+      <div class="calc-form">
+        <div class="sleep-quiz" id="sleep-quiz">
+          <div class="quiz-q" data-q="1">
+            <p>How many hours of sleep do you get on average?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Less than 5</button>
+              <button class="quiz-opt" data-score="1">5–6 hours</button>
+              <button class="quiz-opt" data-score="2">6–7 hours</button>
+              <button class="quiz-opt" data-score="3">7–9 hours ✓</button>
+              <button class="quiz-opt" data-score="2">9+ hours</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="2" style="display:none">
+            <p>How do you feel when you wake up?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Exhausted</button>
+              <button class="quiz-opt" data-score="1">Groggy</button>
+              <button class="quiz-opt" data-score="2">Okay</button>
+              <button class="quiz-opt" data-score="3">Refreshed & alert</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="3" style="display:none">
+            <p>How many days per week do you train?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="3">0–2 days</button>
+              <button class="quiz-opt" data-score="3">3–4 days ✓</button>
+              <button class="quiz-opt" data-score="2">5 days</button>
+              <button class="quiz-opt" data-score="1">6 days</button>
+              <button class="quiz-opt" data-score="0">7 days (no rest!)</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="4" style="display:none">
+            <p>How is your energy level throughout the day?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Chronically low / crashes</button>
+              <button class="quiz-opt" data-score="1">Inconsistent</button>
+              <button class="quiz-opt" data-score="2">Mostly good</button>
+              <button class="quiz-opt" data-score="3">Consistently high</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="5" style="display:none">
+            <p>How stressed are you on a daily basis?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Very high stress</button>
+              <button class="quiz-opt" data-score="1">High stress</button>
+              <button class="quiz-opt" data-score="2">Moderate</button>
+              <button class="quiz-opt" data-score="3">Low / managed well</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="6" style="display:none">
+            <p>Do you notice performance dropping in your workouts?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Yes, consistently getting worse</button>
+              <button class="quiz-opt" data-score="1">Sometimes</button>
+              <button class="quiz-opt" data-score="2">Rarely</button>
+              <button class="quiz-opt" data-score="3">No, performance is stable or improving</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="7" style="display:none">
+            <p>How is your mood and motivation to train?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Dreading every session</button>
+              <button class="quiz-opt" data-score="1">Low / unmotivated</button>
+              <button class="quiz-opt" data-score="2">Normal</button>
+              <button class="quiz-opt" data-score="3">Excited and motivated</button>
+            </div>
+          </div>
+          <div class="quiz-q" data-q="8" style="display:none">
+            <p>Do you take rest days or deload weeks?</p>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-score="0">Never</button>
+              <button class="quiz-opt" data-score="1">Rarely (once a month)</button>
+              <button class="quiz-opt" data-score="2">Sometimes (every 2 weeks)</button>
+              <button class="quiz-opt" data-score="3">Regularly (planned into program)</button>
+            </div>
+          </div>
+          <div class="quiz-progress">
+            <div class="qp-bar"><div class="qp-fill" id="sleep-progress"></div></div>
+            <span id="sleep-progress-text">Question 1 of 8</span>
+          </div>
+        </div>
+        <div class="calc-result" id="sleep-result" style="display:none">
+          <div class="sleep-score-ring">
+            <svg viewBox="0 0 120 120" class="score-ring">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="12"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke-width="12" stroke-linecap="round"
+                id="score-ring-circle"
+                stroke-dasharray="326.7"
+                stroke-dashoffset="326.7"
+                transform="rotate(-90 60 60)"/>
+            </svg>
+            <div class="score-ring-num" id="score-ring-num">—</div>
+          </div>
+          <div class="sleep-verdict" id="sleep-verdict"></div>
+          <button class="calc-btn" onclick="resetSleepQuiz()" style="margin-top:20px;max-width:200px;">Retake Quiz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /calculators-wrap -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-sup">✦ Health & Fitness</span>
+          <span class="logo-main">Fitness<em>Today</em></span>
+        </div>
+        <p>Professional fitness calculators — free forever. Science-backed, personalized, and built for real results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="#tdee" onclick="switchTool('tdee')">TDEE Calculator</a></li>
+          <li><a href="#macros" onclick="switchTool('macros')">Macro Calculator</a></li>
+          <li><a href="#bmi" onclick="switchTool('bmi')">BMI & Body Fat</a></li>
+          <li><a href="#heartrate" onclick="switchTool('heartrate')">Heart Rate Zones</a></li>
+          <li><a href="#hydration" onclick="switchTool('hydration')">Hydration</a></li>
+          <li><a href="#sleep" onclick="switchTool('sleep')">Sleep & Recovery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fitness Today</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="http://fitnesstodayonline.blogspot.com" target="_blank">Blog</a></li>
+          <li><a href="https://www.pinterest.com/fitnesstodayonline/" target="_blank">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Fitness Today Online. For informational purposes only — not medical advice.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calculators.js"></script>
+</body>
+</html>
