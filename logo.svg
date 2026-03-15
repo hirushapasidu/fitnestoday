@@ -1,0 +1,29 @@
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="100" fill="#1E120C" rx="10"/>
+<g transform="translate(36,50)">
+  <ellipse cx="0" cy="14" rx="8" ry="16" fill="#C4735E"/>
+  <path d="M-8,8 Q-30,-4 -50,-12 Q-58,-16 -56,-8 Q-42,0 -30,4 Q-20,8 -8,14Z" fill="#C4735E"/>
+  <path d="M-8,14 Q-26,12 -40,8 Q-50,4 -52,12 Q-38,16 -24,18 Q-16,20 -8,20Z" fill="#a85a47"/>
+  <path d="M-8,20 Q-24,22 -34,24 Q-40,26 -40,30 Q-28,28 -18,26 Q-12,24 -8,24Z" fill="#8B4A38"/>
+  <path d="M8,8 Q30,-4 50,-12 Q58,-16 56,-8 Q42,0 30,4 Q20,8 8,14Z" fill="#C4735E"/>
+  <path d="M8,14 Q26,12 40,8 Q50,4 52,12 Q38,16 24,18 Q16,20 8,20Z" fill="#a85a47"/>
+  <path d="M8,20 Q24,22 34,24 Q40,26 40,30 Q28,28 18,26 Q12,24 8,24Z" fill="#8B4A38"/>
+  <ellipse cx="0" cy="0" rx="7" ry="8" fill="#C4735E"/>
+  <ellipse cx="0" cy="-12" rx="7" ry="7" fill="#2C1810"/>
+  <ellipse cx="0" cy="-11" rx="5" ry="6" fill="#C4735E"/>
+  <circle cx="-3" cy="-13" r="2" fill="#1E120C"/>
+  <circle cx="-3" cy="-13" r="1.2" fill="#C9A96E"/>
+  <circle cx="-2.5" cy="-13.4" r="0.5" fill="#fff"/>
+  <path d="M2,-14 Q7,-12 6,-10 Q3,-11 2,-12Z" fill="#C9A96E"/>
+  <path d="M2,-14 Q5,-12 3,-10" stroke="#2C1810" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M-4,30 Q-7,36 -10,42" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M-4,30 Q-4,36 -4,42" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M-4,30 Q0,36 2,42" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M4,30 Q7,36 10,42" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M4,30 Q4,36 4,42" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M4,30 Q0,36 -2,42" stroke="#C9A96E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</g>
+<text x="72" y="42" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#F5EDE6" letter-spacing="1">FITNESS <tspan fill="#C4735E">TODAY</tspan></text>
+<text x="72" y="58" font-family="Georgia,serif" font-size="7" fill="#8BA888" letter-spacing="2">HOME WORKOUTS</text>
+<text x="72" y="70" font-family="Georgia,serif" font-size="7" fill="#8BA888" letter-spacing="2">&amp; NUTRITION</text>
+</svg>
